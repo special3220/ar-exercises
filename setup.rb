@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'pry' # in case you want to use binding.pry
 require 'active_record'
 require_relative 'lib/store'
 require_relative 'lib/employee'
 
 # Output messages from Active Record to standard out
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+ActiveRecord::Base.logger = Logger.new($stdout)
 
 puts 'Establishing connection to database ...'
 ActiveRecord::Base.establish_connection(
